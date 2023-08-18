@@ -5,6 +5,6 @@ setup(
     packages=find_packages(),
     version='0.1.0',
     description="OpenAIRE Beginner's Kit.",
-    author='Andrea Mannocc, Miriam Baglioni, Sandro La Bruzzo',
+    author='Miriam Baglioni, Gianbattista Bloisi, Sandro La Bruzzo, Andrea Mannocci',
     license='MIT',
 )

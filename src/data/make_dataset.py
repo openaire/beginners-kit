@@ -10,15 +10,17 @@ from dotenv import find_dotenv, load_dotenv
 
 logger = logging.getLogger(__name__)
 
-openaire_files = ["https://zenodo.org/record/7490192/files/communities_infrastructures.tar",
-                  "https://zenodo.org/record/7490192/files/dataset.tar",
-                  "https://zenodo.org/record/7490192/files/datasource.tar",
-                  "https://zenodo.org/record/7490192/files/organization.tar",
-                  "https://zenodo.org/record/7490192/files/otherresearchproduct.tar",
-                  "https://zenodo.org/record/7490192/files/project.tar",
-                  "https://zenodo.org/record/7490192/files/publication.tar",
-                  "https://zenodo.org/record/7490192/files/relation.tar",
-                  "https://zenodo.org/record/7490192/files/software.tar"]
+basePath = "https://zenodo.org/record/7490192/files/"
+
+openaire_files = [basePath + "communities_infrastructures.tar",
+                  basePath + "dataset.tar",
+                  basePath + "datasource.tar",
+                  basePath + "organization.tar",
+                  basePath + "otherresearchproduct.tar",
+                  basePath + "project.tar",
+                  basePath + "publication.tar",
+                  basePath + "relation.tar",
+                  basePath + "software.tar"]
 
 
 def download_tar(url, path):
