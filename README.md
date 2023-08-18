@@ -20,7 +20,7 @@ This will take care of everything is needed to create a Docker image. At the end
 
 # How to run the container
 Open Docker Engine, locate the Docker image you just built and run it, having care of specifying a port (e.g., 8888).
-In the log, you should see an URL promped like `https://127.0.0.1:8888/...`; that's our guy, click on it.
+In the log, you should see an URL prompted like `https://127.0.0.1:8888/...`; that's our guy, click on it.
 The browser will open a page with JupyterLab; this is where you can start playing with the OpenAIRE Graph.
 
 You can run the container from the Terminal too with the following command

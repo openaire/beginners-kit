@@ -17,11 +17,11 @@ ADD requirements.txt /home/jovyan/openaire/
 
 
 # this command is to download the data and set up the requirements
-# COMMENT NOT TO DOWNLOAD THE DATA
+# COMMENT NOT TO DOWNLOAD THE DATA. UNCOMMENT the last three lines
 RUN cd /home/jovyan/openaire && make data 
 
-# UNCOMMENT THE FOLLOWING COMMANDS TO COPY THE DATA FROM LOCAL FOLDER
 # the following commands are for downloaded dataset stored in the local folder to be added to the image
+# UNCOMMENT THE FOLLOWING COMMANDS TO COPY THE DATA FROM LOCAL FOLDER. COMMENT the previous command
 # ADD [downloaded_data_folder] /home/jovyan/openaire/[downloaded_data_folder]
 # RUN ls /home/jovyan/openaire/[downloaded_data_folder]/*.tar | xargs -i tar xf {} -C /home/jovyan/openaire/data/raw/
 # RUN cd /home/jovyan/openaire && make requirements 
