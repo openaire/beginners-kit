@@ -29,6 +29,6 @@ You can run the container from the Terminal too with the following command
 
 
 # How to fetch the data
-The data will be downloaded automatically from Zenodo. Each time the docker image is closed, everything part of the image will be lost. If you want to avoid downloading the data each time, you should save them in a local directory and change the Docker following the instructions.
+The data will be downloaded automatically from Zenodo. Each time the docker image is closed, everything part of the image will be lost. If you want to avoid downloading the data each time, you should save them in a local directory and change the Dockerfile following the instructions.
 
 
