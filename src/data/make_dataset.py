@@ -10,7 +10,7 @@ from dotenv import find_dotenv, load_dotenv
 
 logger = logging.getLogger(__name__)
 
-basePath = "https://zenodo.org/record/7490192/files/"
+basePath = "https://zenodo.org/record/8223812/files/"
 
 openaire_files = [basePath + "communities_infrastructures.tar",
                   basePath + "dataset.tar",
