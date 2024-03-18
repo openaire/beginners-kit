@@ -1,27 +1,52 @@
+FROM eclipse-temurin:21
 
-FROM jupyter/pyspark-notebook:latest
+RUN apt-get update && apt-get install -y curl vim wget software-properties-common ssh net-tools ca-certificates python3 python3-pip 
 
-RUN pip install papermill
-USER jovyan
+RUN update-alternatives --install "/usr/bin/python" "python" "$(which python3)" 1
 
-RUN mkdir /home/jovyan/openaire
-RUN mkdir /home/jovyan/openaire/data
-RUN mkdir /home/jovyan/openaire/data/raw
-
-ADD notebooks /home/jovyan/openaire/notebooks
-ADD src /home/jovyan/openaire/src
-ADD test_environment.py /home/jovyan/openaire/
-ADD setup.py /home/jovyan/openaire/
-ADD Makefile /home/jovyan/openaire
-ADD requirements.txt /home/jovyan/openaire/
+# Fix the value of PYTHONHASHSEED
+# Note: this is needed when you use Python 3.3 or greater
+ENV SPARK_VERSION=3.5.1 \
+HADOOP_VERSION=3 \
+SPARK_HOME=/opt/spark \
+PYTHONHASHSEED=1
 
 
-# this command is to download the data and set up the requirements
-# COMMENT NOT TO DOWNLOAD THE DATA. UNCOMMENT the last three lines
-RUN cd /home/jovyan/openaire && make data 
+# Download and uncompress spark from the apache archive
+RUN wget https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz 
 
-# the following commands are for downloaded dataset stored in the local folder to be added to the image
-# UNCOMMENT THE FOLLOWING COMMANDS TO COPY THE DATA FROM LOCAL FOLDER. COMMENT the previous command
-# ADD [downloaded_data_folder] /home/jovyan/openaire/[downloaded_data_folder]
-# RUN ls /home/jovyan/openaire/[downloaded_data_folder]/*.tar | xargs -i tar xf {} -C /home/jovyan/openaire/data/raw/
-# RUN cd /home/jovyan/openaire && make requirements 
+RUN mkdir -p /opt/
+RUN tar -xf spark-3.5.1-bin-hadoop3.tgz -C /opt/
+RUN rm spark-3.5.1-bin-hadoop3.tgz
+RUN mv /opt/spark-3.5.1-bin-hadoop3 /opt/spark
+
+COPY log4j2.properties /opt/spark/conf
+
+RUN useradd -d /app -s /bin/bash -G sudo -u 1001  openaire
+
+WORKDIR /app 
+
+
+RUN chown -R openaire /app
+
+USER openaire
+
+RUN pip install jupyter notebook
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+EXPOSE 8889
+RUN pip install jupyter notebook
+ENV PATH="$PATH:/opt/spark/bin:/app/.local/bin"
+ENV PYSPARK_DRIVER_PYTHON='jupyter'
+ENV PYSPARK_DRIVER_PYTHON_OPTS='lab --ip 0.0.0.0 --no-browser --port=8889'
+
+
+RUN mkdir -p /app/openaire/data/raw
+
+ADD notebooks /app/openaire
+ADD src /app/openaire
+USER root
+RUN chown -R openaire /app/openaire
+USER openaire
+WORKDIR /app/openaire
+ENTRYPOINT [ "pyspark" ]
