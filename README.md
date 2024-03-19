@@ -16,7 +16,7 @@ Once you are in position, run the following command
 ```docker build --rm -t openaire-beginners-kit .```
 
 This will take care of everything is needed to create a Docker image; do not worry, building the image will take some time as Docker needs to fetch plenty of dependencies and try to virtualise an entire Apache Hadoop/Spark cluster on your local workstation.
-At the end, you will have an sandboxed environment with Python, Jupyter notebooks, Pandas, Hadoop, Spark and another bunch of modules installed. Easy peasy.
+At the end, you will have a sandboxed environment with Python, Jupyter notebooks, Pandas, Hadoop, Spark and another bunch of modules installed. Easy peasy.
 
 
 # How to run/stop the container
@@ -37,7 +37,9 @@ Later, you can go again to Docker Engine to **restart** the container by clickin
 
 You can resume the container from the Terminal with the command
 
-```docker restart kit-container```
+```
+docker restart kit-container
+```
 
 
 # Playing with the beginner's kit
