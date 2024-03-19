@@ -20,7 +20,7 @@ At the end, you will have an sandboxed environment with Python, Jupyter notebook
 
 
 # How to run/stop the container
-In order to start the container, open Docker Engine, locate the Docker image you just built and run it by clicking the PLAY icon, having care of specifying the port `8889` in the proper field.
+In order to **start** the container, open Docker Engine, locate the Docker image you just built and run it by clicking the PLAY icon, having care of specifying the port `8889` in the proper field.
 You can also provide Docker with a name for the container, e.g., `kit-container`.
 
 You can run the container from the Terminal too with the following command
@@ -29,22 +29,24 @@ You can run the container from the Terminal too with the following command
 
 In order to stop the container, head back to Docker Engine, locate the running container and click on the STOP icon in order to stop it. 
 
-You can stop the container from the Terminal too with the following command
+You can **stop** the container from the Terminal too with the following command
 
 ```docker stop kit-container```
 
-Later, you can go again to Docker Engine to restart the container by clicking the PLAY icon. This will resume the container as you left it (data included).
+Later, you can go again to Docker Engine to **restart** the container by clicking the PLAY icon. This will resume the container as you left it (data included).
 
-You can resum the container from the Terminal with the command
+You can resume the container from the Terminal with the command
 
 ```docker restart kit-container```
 
 
 # Play with the beginner's kit
 To start playing with OpenAIRE data, you need to head to JupiterLab and locate the Jupyter notebook we prepared.
+
 Upon starting the container you should see a bunch of logs.
 Locate a line containing something like `http://127.0.0.1:8889/lab?token=...`; that's our guy, click on it.
-The browser will open a page with JupyterLab. 
+The browser will open a page with JupyterLab.
+
 Locate the notebook `beginners_kit.ipynb` under the `./notebook` folder; this is where you can start playing with the OpenAIRE Graph.
 Just follow the instructions provided in there.
 
