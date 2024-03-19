@@ -20,27 +20,27 @@ At the end, you will have an sandboxed environment with Python, Jupyter notebook
 
 
 # How to run/stop the container
-In order to **start** the container, open Docker Engine, locate the Docker image you just built and run it by clicking the PLAY icon, having care of specifying the port `8889` in the proper field.
+In order to **start** the container, open Docker Engine, locate the Docker image you just built and run it by clicking the Play icon (►), having care of specifying the port `8889` in the proper field.
 You can also provide Docker with a name for the container, e.g., `kit-container`.
 
 You can run the container from the Terminal too with the following command
 
 ```docker run --name kit-container -p 8889:8889 --rm openaire-beginners-kit```
 
-In order to stop the container, head back to Docker Engine, locate the running container and click on the STOP icon in order to stop it. 
+In order to stop the container, head back to Docker Engine, locate the running container and click on the Stop icon (⏹︎) in order to stop it. 
 
 You can **stop** the container from the Terminal too with the following command
 
 ```docker stop kit-container```
 
-Later, you can go again to Docker Engine to **restart** the container by clicking the PLAY icon. This will resume the container as you left it (data included).
+Later, you can go again to Docker Engine to **restart** the container by clicking the Play icon (►). This will resume the container as you left it (data included).
 
 You can resume the container from the Terminal with the command
 
 ```docker restart kit-container```
 
 
-# Play with the beginner's kit
+# Playing with the beginner's kit
 To start playing with OpenAIRE data, you need to head to JupiterLab and locate the Jupyter notebook we prepared.
 
 Upon starting the container you should see a bunch of logs.
