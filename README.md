@@ -13,22 +13,38 @@ First, `git clone` this repository, then open a Terminal window and get inside t
 
 Once you are in position, run the following command
 
-```docker build --rm  -t  openaire-beginners-kit .```
+```docker build --rm -t openaire-beginners-kit .```
 
-This will take care of everything is needed to create a Docker image. At the end, you will have an environment with Python, Jupyter notebooks, Pandas, Spark and another bunch of modules installed. Easy peasy.
+This will take care of everything is needed to create a Docker image; do not worry, building the image will take some time as Docker needs to fetch plenty of dependencies and try to virtualise an entire Apache Hadoop/Spark cluster on your local workstation.
+At the end, you will have an sandboxed environment with Python, Jupyter notebooks, Pandas, Hadoop, Spark and another bunch of modules installed. Easy peasy.
 
 
-# How to run the container
-Open Docker Engine, locate the Docker image you just built and run it, having care of specifying a port (e.g., 8888).
-In the log, you should see an URL prompted like `https://127.0.0.1:8888/...`; that's our guy, click on it.
-The browser will open a page with JupyterLab; this is where you can start playing with the OpenAIRE Graph.
+# How to run/stop the container
+In order to start the container, open Docker Engine, locate the Docker image you just built and run it by clicking the PLAY icon, having care of specifying the port `8889` in the proper field.
+You can also provide Docker with a name for the container, e.g., `kit-container`.
 
 You can run the container from the Terminal too with the following command
 
-```docker run -p 8888:8888  --rm  openaire-beginners-kit```
+```docker run --name kit-container -p 8889:8889 --rm openaire-beginners-kit```
+
+In order to stop the container, head back to Docker Engine, locate the running container and click on the STOP icon in order to stop it. 
+
+You can stop the container from the Terminal too with the following command
+
+```docker stop kit-container```
+
+Later, you can go again to Docker Engine to restart the container by clicking the PLAY icon. This will resume the container as you left it (data included).
+
+You can resum the container from the Terminal with the command
+
+```docker restart kit-container```
 
 
-# How to fetch the data
-The data will be downloaded automatically from Zenodo. Each time the docker image is closed, everything part of the image will be lost. If you want to avoid downloading the data each time, you should save them in a local directory and change the Dockerfile following the instructions.
-
+# Play with the beginner's kit
+To start playing with OpenAIRE data, you need to head to JupiterLab and locate the Jupyter notebook we prepared.
+Upon starting the container you should see a bunch of logs.
+Locate a line containing something like `http://127.0.0.1:8889/lab?token=...`; that's our guy, click on it.
+The browser will open a page with JupyterLab. 
+Locate the notebook `beginners_kit.ipynb` under the `./notebook` folder; this is where you can start playing with the OpenAIRE Graph.
+Just follow the instructions provided in there.
 
