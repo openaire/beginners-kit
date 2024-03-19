@@ -47,6 +47,6 @@ Upon starting the container you should see a bunch of logs.
 Locate a line containing something like `http://127.0.0.1:8889/lab?token=...`; that's our guy, click on it.
 The browser will open a page with JupyterLab.
 
-Locate the notebook `beginners_kit.ipynb` under the `./notebook` folder; this is where you can start playing with the OpenAIRE Graph.
+Open the notebook `beginners_kit.ipynb`; this is where you can start playing with the OpenAIRE Graph.
 Just follow the instructions provided in there.
 
