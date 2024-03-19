@@ -13,7 +13,9 @@ First, `git clone` this repository, then open a Terminal window and get inside t
 
 Once you are in position, run the following command
 
-```docker build --rm -t openaire-beginners-kit .```
+```
+docker build --rm -t openaire-beginners-kit .
+```
 
 This will take care of everything is needed to create a Docker image; do not worry, building the image will take some time as Docker needs to fetch plenty of dependencies and try to virtualise an entire Apache Hadoop/Spark cluster on your local workstation.
 At the end, you will have a sandboxed environment with Python, Jupyter notebooks, Pandas, Hadoop, Spark and another bunch of modules installed. Easy peasy.
@@ -25,13 +27,17 @@ You can also provide Docker with a name for the container, e.g., `kit-container`
 
 You can run the container from the Terminal too with the following command
 
-```docker run --name kit-container -p 8889:8889 --rm openaire-beginners-kit```
+```
+docker run --name kit-container -p 8889:8889 --rm openaire-beginners-kit
+```
 
 In order to stop the container, head back to Docker Engine, locate the running container and click on the Stop icon (&#9632;) in order to stop it. 
 
 You can **stop** the container from the Terminal too with the following command
 
-```docker stop kit-container```
+```
+docker stop kit-container
+```
 
 Later, you can go again to Docker Engine to **restart** the container by clicking the Play icon (►). This will resume the container as you left it (data included).
 
