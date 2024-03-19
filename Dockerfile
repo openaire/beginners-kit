@@ -44,7 +44,6 @@ ENV PYSPARK_DRIVER_PYTHON_OPTS='lab --ip 0.0.0.0 --no-browser --port=8889'
 RUN mkdir -p /app/openaire/data/raw
 
 ADD notebooks /app/openaire
-ADD src /app/openaire
 USER root
 RUN chown -R openaire /app/openaire
 USER openaire
