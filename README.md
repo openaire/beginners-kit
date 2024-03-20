@@ -5,7 +5,10 @@ Docker Engine is the only piece of software required.
 
 
 # Prerequisites
-Install Docker Engine from https://www.docker.com
+Install Docker Engine from https://www.docker.com.
+
+Please, double-check that Docker has been given an adequate space for containers by checking under Settings -> Resources -> Virtual Disk limit. In our tests, we set this parameter to **64 GB**.
+For the sake of completeness, our default configuration was set to 8 CPUs, 8 GB memory, and 1 GB swap.
 
 
 # How to build
