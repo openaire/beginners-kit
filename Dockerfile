@@ -1,6 +1,6 @@
 FROM eclipse-temurin:21
 
-RUN apt-get update && apt-get install -y curl vim wget software-properties-common ssh net-tools ca-certificates python3 python3-pip 
+RUN apt-get update && apt-get install -y curl vim wget software-properties-common ssh net-tools ca-certificates python3 python3-pip
 
 RUN update-alternatives --install "/usr/bin/python" "python" "$(which python3)" 1
 
@@ -26,16 +26,14 @@ RUN useradd -d /app -s /bin/bash -G sudo -u 1001  openaire
 
 WORKDIR /app 
 
-
 RUN chown -R openaire /app
 
 USER openaire
 
-RUN pip install jupyter notebook
+# Prepare environment for python
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --break-system-packages
 EXPOSE 8889
-RUN pip install jupyter notebook
 ENV PATH="$PATH:/opt/spark/bin:/app/.local/bin"
 ENV PYSPARK_DRIVER_PYTHON='jupyter'
 ENV PYSPARK_DRIVER_PYTHON_OPTS='lab --ip 0.0.0.0 --no-browser --port=8889'
