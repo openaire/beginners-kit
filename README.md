@@ -31,7 +31,7 @@ You can also provide Docker with a name for the container, e.g., `kit-container`
 You can run the container from the Terminal too with the following command
 
 ```
-docker run --name kit-container -p 8889:8889 --rm openaire-beginners-kit
+docker run --name kit-container -p 8889:8889 openaire-beginners-kit
 ```
 
 In order to stop the container, head back to Docker Engine, locate the running container and click on the Stop icon (&#9632;) in order to stop it. 
