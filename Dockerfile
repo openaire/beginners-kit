@@ -6,19 +6,19 @@ RUN update-alternatives --install "/usr/bin/python" "python" "$(which python3)" 
 
 # Fix the value of PYTHONHASHSEED
 # Note: this is needed when you use Python 3.3 or greater
-ENV SPARK_VERSION=3.5.3 \
+ENV SPARK_VERSION=3.5.5 \
 HADOOP_VERSION=3 \
 SPARK_HOME=/opt/spark \
 PYTHONHASHSEED=1
 
 
 # Download and uncompress spark from the apache archive
-RUN wget https://dlcdn.apache.org/spark/spark-3.5.3/spark-3.5.3-bin-hadoop3.tgz 
+RUN wget https://dlcdn.apache.org/spark/spark-3.5.5/spark-3.5.5-bin-hadoop3.tgz 
 
 RUN mkdir -p /opt/
-RUN tar -xf spark-3.5.3-bin-hadoop3.tgz -C /opt/
-RUN rm spark-3.5.3-bin-hadoop3.tgz
-RUN mv /opt/spark-3.5.3-bin-hadoop3 /opt/spark
+RUN tar -xf spark-3.5.5-bin-hadoop3.tgz -C /opt/
+RUN rm spark-3.5.5-bin-hadoop3.tgz
+RUN mv /opt/spark-3.5.5-bin-hadoop3 /opt/spark
 
 COPY log4j2.properties /opt/spark/conf
 
